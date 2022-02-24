@@ -99,7 +99,7 @@ const Home = () => {
             }}>
             Collections for sale 🔥
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('NFTcoin')}>
             <View
               style={{
                 width: 100,
