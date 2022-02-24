@@ -102,7 +102,7 @@ const MyNFTs = () => {
           </Text>
         </View>
         <View style={{margin: 30, marginTop: 60}}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('NFTcoin')}>
             <View
               style={{
                 width: 100,

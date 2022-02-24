@@ -7,6 +7,8 @@ import account from '../assets/images/account.png';
 import home from '../assets/images/home.png';
 import back from '../assets/images/back.png';
 import down from '../assets/images/down.png';
+import nftdrop from '../assets/images/nftdrop.png';
+import polygon from '../assets/images/polygon.png';
 
 export default {
   Collection,
@@ -18,4 +20,6 @@ export default {
   home,
   back,
   down,
+  nftdrop,
+  polygon,
 };

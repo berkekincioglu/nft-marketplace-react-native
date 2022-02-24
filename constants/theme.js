@@ -14,6 +14,8 @@ export const COLORS = {
   thirdDark: '#414c50',
   blue: '#0784b5',
   secondaryBlue: '#39ace7',
+  black: '#000000',
+  pink: '#E900FF',
 };
 export const SIZES = {
   // global sizes
