@@ -1,54 +1,71 @@
-import {StyleSheet, Text, View, Modal, Pressable} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import React, {useState} from 'react';
-import {SIZES} from '../constants';
+import {SIZES, COLORS, images} from '../constants';
+import {useNavigation} from '@react-navigation/native';
+
+const Button = ({text, color}) => (
+  <TouchableOpacity
+    style={{
+      width: '70%',
+      backgroundColor: color,
+      height: 40,
+      borderRadius: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: 20,
+    }}>
+    <Text style={{fontWeight: 'bold', color: COLORS.white, fontSize: 20}}>
+      {text}
+    </Text>
+  </TouchableOpacity>
+);
 
 const CreateNewModal = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
+  return (
+    <View style={[styles.container, {height: SIZES.height / 2}]}>
+      <View style={{flex: 1}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginTop: '12%',
+            marginHorizontal: '10%',
+          }}>
+          <Text style={{fontSize: 20, color: COLORS.white, fontWeight: 'bold'}}>
+            Choose your mode
+          </Text>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image
+              source={images.down}
+              style={{widht: 25, height: 25, tintColor: COLORS.white}}
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
 
-  return <View></View>;
+      <View style={{flex: 4}}>
+        <View
+          style={{
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Button text="Pixel Editor" color={COLORS.gray} />
+          <Button text="Pixelizer" color={COLORS.gray} />
+          <Button text="Upload Your Own" color={COLORS.gray} />
+          <Button text="Mint NFT" color={COLORS.blue} />
+        </View>
+      </View>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-  centeredView: {
+  container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: 'center',
+    backgroundColor: COLORS.secondaryDark,
   },
 });
 
