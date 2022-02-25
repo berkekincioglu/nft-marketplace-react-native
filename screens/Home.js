@@ -25,7 +25,7 @@ const nftData = [
   {img: images.NFT, id: '6', name: '#23', amount: '10', icon: images.NFTIcon},
 ];
 
-const collectionData = [
+export const collectionData = [
   {
     img: images.Collection,
     id: '0',

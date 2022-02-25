@@ -1,4 +1,4 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Dimensions} from 'react-native';
 import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -75,9 +75,20 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="AddNFTModule"
-        options={{tabBarLabel: '', headerShown: false}}
+        options={{
+          tabBarLabel: '',
+          headerShown: false,
+        }}
         component={AddNFTModule}
+        listeners={({navigation}) => ({
+          tabPress: e => {
+            e.preventDefault();
+            navigation.navigate('CreateNewModal');
+          },
+        })}
+        gesture
       />
+
       <Tab.Screen
         name="MyNFTs"
         options={{headerShown: false}}
@@ -98,6 +109,14 @@ const Navigation = () => {
         />
         <Stack.Screen name="CollectionDetail" component={CollectionDetail} />
         <Stack.Screen name="NFTDetail" component={NFTDetail} />
+        <Stack.Screen
+          name="CreateNewModal"
+          component={CreateNewModal}
+          options={{
+            presentation: 'modal',
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="NFTcoin"
           component={NFTcoin}
