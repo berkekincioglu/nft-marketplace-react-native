@@ -23,15 +23,15 @@ const Button = ({text, color}) => (
 const CreateNewModal = () => {
   const navigation = useNavigation();
   return (
-    <View style={[styles.container, {height: SIZES.height / 2}]}>
+    <View style={styles.container}>
       <View style={{flex: 1}}>
         <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between',
-            marginTop: '12%',
-            marginHorizontal: '10%',
+            marginVertical: '5%',
+            marginHorizontal: '5%',
           }}>
           <Text style={{fontSize: 20, color: COLORS.white, fontWeight: 'bold'}}>
             Choose your mode
@@ -39,7 +39,7 @@ const CreateNewModal = () => {
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Image
               source={images.down}
-              style={{widht: 25, height: 25, tintColor: COLORS.white}}
+              style={{width: 25, height: 25, tintColor: COLORS.white}}
             />
           </TouchableOpacity>
         </View>
@@ -66,6 +66,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.secondaryDark,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
   },
 });
 

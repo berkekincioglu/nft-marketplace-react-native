@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {images, COLORS} from '../constants/index';
+import {images, COLORS, SIZES} from '../constants/index';
 import CreateNewModal from '../components/CreateNewModal';
 
 const Tab = createBottomTabNavigator();
@@ -78,6 +78,7 @@ const Tabs = () => {
         options={{
           tabBarLabel: '',
           headerShown: false,
+          // maxHeight: SIZES.height / 2,
         }}
         component={AddNFTModule}
         listeners={({navigation}) => ({
@@ -115,6 +116,15 @@ const Navigation = () => {
           options={{
             presentation: 'modal',
             headerShown: false,
+            contentStyle: {
+              height: SIZES.height / 2,
+              flex: 1,
+              position: 'absolute',
+              bottom: 0,
+              width: SIZES.width,
+              borderTopLeftRadius: 30,
+              borderTopRightRadius: 30,
+            },
           }}
         />
         <Stack.Screen
